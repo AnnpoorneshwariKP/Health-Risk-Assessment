@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<style>
+	html, *{
+  padding: 0;
+  margin: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #008b8b;
+  background: #0f8a9d;
+  background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+  clip-path: (50% 0%, 50% 50%, 100% 80%, 0% 50%);
+  background-size: auto;
+  overflow-x: hidden !important;
+}
+
+.container {
+  width: 50%;
+  padding: 30px;
+  border: 5px solid #0f8a9d;
+  margin: auto;
+  background: #0f8a9d;
+  background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+  clip-path: (0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  color: #f0f8ff;
+;
+  border-radius: 6.2px;
+}
+
+
+p {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+input{
+  color: #00000 !important;
+  margin: 10px;  
+
+}
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before
+{
+  width: 20%;
+  padding: 1em;
+  line-height: 1.4;
+  background-color: #ffffff;
+  border: 1px solid rgb(70, 67, 67);
+  border-radius: 3px;
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input:focus {
+  outline: 10000;
+  outline-color: #120a8f;
+  margin: 30px;
+  border-color: #ff0000;
+  box-shadow: 0 0 45px #120a8f;
+}
+
+input:focus + .input-icon:after {
+  border-right-color: #00C6A7;
+}
+
+
+#submit{
+  width: 90%;
+  background-color: #0080ff;
+  color: #fffff !important;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media(max-width: 1024px) {
+  .container{
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 676px) {
+  .container {
+    width: 100%;
+    font-size: 18px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+ }
+
+</style>
+</head>
+<body>
+
+    <div class="container"><center>
+	<h1>OBESITY PREDICTOR</h1>
+	    <form action="{{url_for('predict')}}"method="post">
+		<p>Gender</p>
+            <input type="number" name="Gender" id="Gender" required>
+	      <br><br>
+		
+		<p>Age</p>
+            <input type="number" name="Age" id="Age" required>
+	      <br><br>
+    
+            <p>Height</p>
+            <input type="text" name="Height" id="Height" required>
+	      <br><br>
+    
+    
+            <p>Weight</p>
+            <input type="text" name="Weight" id="Weight" required> <br><br> 
+    
+    
+            <p>Family History</p>
+            <input type="number" name="Family History" id="FH" required> 
+            <br><br> 
+   
+            <p>FCVC</p>
+            <input type="number" name="FCVC" id="FCVC" required>
+	      <br><br> 
+
+            <p>CAEC</p>
+            <input type="number" name="CAEC" id="CAEC" required> 
+            <br><br>
+        
+            <button id="submit" type="submit" >Predict Obesity</button>
+        </form>
+		{{prediction}}
+    </div>
+</body>
+</center>
+</html>
